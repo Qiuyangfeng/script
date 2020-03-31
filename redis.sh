@@ -1,10 +1,11 @@
 #!/bin/bash
 # 安装常用软件
 sudo apt update && sudo apt install -y gcc make openjdk-8-jre-headless
-# 下载安装配置启动redis
+# 配置内核参数
 echo "vm.overcommit_memory = 1" | sudo tee -a /etc/sysctl.conf
 echo "net.core.somaxconn= 1024" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
+# 下载安装配置redis
 wget http://download.redis.io/releases/redis-5.0.5.tar.gz && tar -zxvf redis-5.0.5.tar.gz
 sudo mkdir -p /opt/redis && sudo chown $USER:$USER /opt/redis
 cd $PWD/redis-5.0.5/ && make MALLOC=libc PREFIX=/opt/redis install
@@ -24,6 +25,7 @@ appendonly yes
 appendfilename "appendonly.aof"
 EOF
 mv redis.conf /opt/redis/
+# 让systemd管理redis server
 sudo mkdir -p /usr/lib/systemd/system
 cat > redis.service <<EOF
 [Unit]
