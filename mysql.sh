@@ -1,5 +1,6 @@
 #!/bin/bash
-# 下载安装配置启动mysql-5.7
+# 下载安装配置启动mysql-5.7(ubuntu16.04-18.04)
+# 自动配置mysql默认编码为utf-8,不区分大小写,root密码123456 ,可以从其他地方登陆
 sudo apt update && sudo apt install -y mysql-server-5.7
 MYSQLUSEER=$(sudo cat /etc/mysql/debian.cnf|grep -m 1 user|cut -d= -f2|sed 's/ //g')
 MYPASSWD=$(sudo cat /etc/mysql/debian.cnf|grep -m 1 password|cut -d= -f2|sed 's/ //g')
