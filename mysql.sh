@@ -10,3 +10,7 @@ echo "lower_case_table_names=1" | sudo tee -a /etc/mysql/mysql.conf.d/mysqld.cnf
 mysql -u $MYSQLUSEER --password=$MYPASSWD -e "use mysql;update user set authentication_string=PASSWORD('123456') where user='root';update user set plugin='mysql_native_password';flush privileges;"
 mysql -u $MYSQLUSEER --password=$MYPASSWD -e "use mysql;update user set host='%' where user='root';flush privileges;"
 sudo systemctl restart mysql.service && sudo systemctl enable mysql.service
+sudo systemctl status mysql.service
+echo "Mysql-5.7 is running on 0.0.0.0:3306"
+echo "User: root"
+echo "Password: 123456"
