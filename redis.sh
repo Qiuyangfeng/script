@@ -42,7 +42,7 @@ logfile "/opt/redis/redis.log"
 appendonly yes
 appendfilename "appendonly.aof"
 EOF
-mv redis.conf /opt/redis/
+mv  -f redis.conf /opt/redis/
 # 让systemd管理redis server
 sudo mkdir -p /usr/lib/systemd/system
 cat > redis.service <<EOF
@@ -57,7 +57,7 @@ ExecStart=/opt/redis/bin/redis-server /opt/redis/redis.conf
 [Install]
 WantedBy=multi-user.target
 EOF
-sudo mv redis.service /usr/lib/systemd/system/
+sudo mv -f redis.service /usr/lib/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl start redis.service && sudo systemctl enable redis.service
 rm ~/redis-5.0.5.tar.gz && rm -rf ~/redis-5.0.5/
