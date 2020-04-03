@@ -1,10 +1,10 @@
 #!/bin/bash
 # 安装基础环境
-sudo apt update && sudo apt install -y libcurl4 gcc
+sudo apt update && sudo apt install -y libcurl4 gcc curl
 
 # 下载mongodb二级制包
-curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.0.10.tgz
-tar -zxvf mongodb-linux-x86_64-ubuntu1604-4.0.10.tgz && sudo mv -f mongodb-linux-x86_64-ubuntu1604-4.0.10 /opt/mongodb
+curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.2.5.tgz
+tar -zxvf mongodb-linux-x86_64-ubuntu1604-4.2.5.tgz && sudo mv -f mongodb-linux-x86_64-ubuntu1604-4.2.5 /opt/mongodb
 mkdir -p /opt/mongodb/{data,log} && touch -f {mongod.conf,mongodb.service,disable-THP.service}
 # mongodb的配置文件
 cat > mongod.conf << EOF
