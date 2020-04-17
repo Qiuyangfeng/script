@@ -79,6 +79,6 @@ mv -f mongod.conf /opt/mongodb/ && sudo systemctl daemon-reload
 sudo systemctl start mongodb.service && sudo systemctl enable mongodb.service
 sudo systemctl start disable-THP.service && sudo systemctl enable disable-THP.service
 # 把mongodb程序加入环境变量
-echo 'export MONGODB_HOME=/opt/mongodb' >> ~/.bashrc
-echo 'export PATH=$PATH:$MONGODB_HOME/bin' >> ~/.bashrc
-source ~/.bashrc
+echo 'export MONGODB_HOME=/opt/mongodb' >> /etc/profile
+echo 'export PATH=$PATH:$MONGODB_HOME/bin' >> /etc/profile
+source /etc/profile

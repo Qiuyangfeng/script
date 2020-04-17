@@ -62,3 +62,6 @@ sudo systemctl daemon-reload
 sudo systemctl start redis.service && sudo systemctl enable redis.service
 rm ~/redis-5.0.5.tar.gz && rm -rf ~/redis-5.0.5/
 echo "redis server is on 0.0.0.0:6379"
+echo 'export REDIS_HOME=/opt/redis' >> /etc/profile
+echo 'export PATH=$PATH:$REDIS_HOME/bin' >> /etc/profile
+source /etc/profile
