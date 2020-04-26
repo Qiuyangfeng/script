@@ -1,4 +1,5 @@
 #!/bin/bash
+# ubuntu
 # 安装常用软件
 sudo apt update && sudo apt install -y gcc make openjdk-8-jre-headless
 # 配置内核参数
