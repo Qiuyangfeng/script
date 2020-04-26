@@ -1,4 +1,5 @@
 #!/bin/bash
+#ubuntu
 # 安装基础环境
 sudo apt update && sudo apt install -y libcurl4 gcc curl
 
